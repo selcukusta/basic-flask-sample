@@ -1,9 +1,13 @@
 language: python
 python:
   - "3.6"
-# command to install dependencies
 install:
   - pip install -r app/requirements.txt
-# command to run tests
 script:
   - app/helpers/test_string_helper.py
+after_success:
+  - docker login -u $DOCKER_UNAME -p $DOCKER_PASS
+  - export REPO=selcukusta/basic-flask-sample
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$TAG .
+  - docker push $REPO
