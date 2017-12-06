@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install -r app/requirements.txt
+# command to run tests
+script:
+  - app/helpers/test_string_helper.py
