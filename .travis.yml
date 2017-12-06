@@ -2,7 +2,9 @@ language: python
 python:
   - "3.6"
 install:
-  - pip install -r app/requirements.txt
+  - pip install -r ./app/requirements.txt
+before_script:
+  - chmod a+x ./app/helpers/test_string_helper.py
 script:
   - app/helpers/test_string_helper.py
 after_success:
