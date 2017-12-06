@@ -5,7 +5,7 @@ class BasicTestCase(unittest.TestCase):
 
     def test_trim_and_uppercase(self):
         value = "    Hello World   "
-        expected = "HELLO WORLD"
+        expected = "HELLO WORLDs"
         response = string_helper.trim_and_uppercase(value)
         self.assertEqual(response, expected)
 
