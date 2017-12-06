@@ -4,9 +4,9 @@ python:
 install:
   - pip install -r ./app/requirements.txt
 before_script:
-  - chmod a+x ./app/helpers/test_string_helper.py
+  - chmod a+x ./scripts/test.sh
 script:
-  - app/helpers/test_string_helper.py
+  - ./scripts/test.sh
 after_success:
   - docker login -u $DOCKER_UNAME -p $DOCKER_PASS
   - export REPO=selcukusta/basic-flask-sample
